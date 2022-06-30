@@ -1,4 +1,7 @@
+import { writable } from 'svelte/store';
 
 // Random quote store
-import { writable } from 'svelte/store';
 export const quote = writable("")
+
+// User store
+export const users = writable([])

@@ -2,17 +2,27 @@
 
 	import '../app.css';
 	import { onMount } from "svelte";
-	import { quote } from "../store"
-	import { getQuote } from "../get-quote"
+	import { users, quote } from "../store"
+	import { getQuote, getUsers } from "../fetch-api"
 	
+	
+	// Get users
+	let usersval;
+	users.subscribe(value=> {
+		usersval = value;
+	});
+	onMount(async () => {
+		const usersval = await getUsers()
+		users.set(usersval)
+	});
+	
+	// Get initial random quote
 	let quoteval;
-
 	quote.subscribe(value=> {
 		quoteval = value;
 	});
 
 	onMount(async () => {
-
 		const quoteval = await getQuote()
 		quote.set(quoteval)
 	});

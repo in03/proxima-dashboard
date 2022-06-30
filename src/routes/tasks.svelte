@@ -4,7 +4,7 @@
 
 <script>
 
-  import { getQuote } from "../get-quote";
+  import { getQuote } from "../fetch-api";
   import { quote } from "../store";
   import { Jellyfish } from "svelte-loading-spinners";
   
