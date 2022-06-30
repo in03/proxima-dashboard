@@ -4,7 +4,11 @@
 	import { onMount } from "svelte";
 	import { users, quote } from "../store"
 	import { getQuote, getUsers } from "../fetch-api"
-	
+
+	/*TODO: Implement tabbed navbar with drawer fallback. 
+	Tabs like so "https://linguinecode.com/post/svelte-tabs-component"
+	Navbar like so "https://daisyui.com/components/navbar/"
+	*/
 	
 	// Get users
 	let usersval;

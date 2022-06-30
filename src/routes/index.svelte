@@ -4,7 +4,6 @@
 
 <script>
   import { Jellyfish } from 'svelte-loading-spinners'
-  import { onMount } from "svelte";
   import { users } from '../store';
   
   let usersval;
