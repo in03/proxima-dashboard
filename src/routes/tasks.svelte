@@ -4,9 +4,10 @@
 
 <script>
 
-  import { getQuote } from "../fetch-api";
-  import { quote } from "../store";
+  import { getQuote } from "../js/fetch-api";
+  import { quote } from "../js/store";
   import { Jellyfish } from "svelte-loading-spinners";
+  import { fade, fly } from 'svelte/transition';
   
   let quoteval;
 
@@ -19,17 +20,29 @@
     quote.set(quoteval)
   };
 
+  let imageLoaded = false
+
 </script>
 
 {#if quoteval}
-  <div class="flex items-center justify-center">
-    <div class="card w-96 bg-primary-focus shadow-xl">
+<div class="flex items-center justify-center" transition:fly={{ y: -30 }}>
+  <div class="card w-96 bg-primary-focus shadow-xl">
       <figure class="px-10 pt-10">
-        <img src="https://api.lorem.space/image/face?w=200&h=200" alt="face" class="rounded-xl" />
+        {#key imageLoaded}
+        <img src="https://api.lorem.space/image/face?w=200&h=200"
+             alt="face" 
+             class="rounded-xl opacity-0"
+             class:opacity-100={imageLoaded}
+             on:load="{() => imageLoaded = true}"
+             in:fade
+        />
+        {/key}
       </figure>
       <div class="card-body items-center text-center">
         <h2 class="card-title mt-0.5 mb-1">Quote of the Day</h2>
-        <p class="mb-5 italic">"{quoteval}"</p>
+        {#key quoteval}
+        <p class="mb-5 italic" in:fly={{ y: -30}}>"{quoteval}"</p>
+        {/key}
         <div class="card-actions items-center text-center">
           <button class="btn btn-primary" on:click={updateQuote}>Refresh</button>
         </div>
