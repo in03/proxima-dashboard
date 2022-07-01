@@ -2,8 +2,8 @@
 
 	import '../app.css';
 	import { onMount } from "svelte";
-	import { users, quote } from "../store"
-	import { getQuote, getUsers } from "../fetch-api"
+	import { users, quote } from "../js/store"
+	import { getQuote, getUsers } from "../js/fetch-api"
 
 	/*TODO: Implement tabbed navbar with drawer fallback. 
 	Tabs like so "https://linguinecode.com/post/svelte-tabs-component"

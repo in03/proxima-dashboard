@@ -3,11 +3,13 @@
 </svelte:head>
 
 <script>
-  import { Jellyfish } from 'svelte-loading-spinners'
-  import { users } from '../store';
-  
-  let usersval;
 
+  import { Jellyfish } from 'svelte-loading-spinners';
+  import { users } from '../js/store';
+  import ImageLoader from '../components/image/ImageLoader.svelte';
+  
+  // Get users
+  let usersval;
   users.subscribe(value=> {
 		usersval = value;
 	});
@@ -20,16 +22,16 @@
     <div class="mt-10 grid grid-cols-4 gap-4">
       {#each usersval as user}
       <div class="card w-auto card-pr shadow-xl scale-95 hover:scale-100 ease-in-out duration-150">
-        <figure><img src={user.avatar} alt="user" /></figure>
+        <figure><ImageLoader src={user.avatar} alt="Randomly-generated robot face"></ImageLoader></figure>
         <div class="card-body">
           <h2 class="card-title">
             {user.first_name} {user.last_name}
-            <div class="badge badge-secondary"> {user.subscription.plan}</div>
+            <div class="badge badge-secondary truncate hover:animate-pulse"> {user.subscription.plan}</div>
           </h2>
           <div class="card-actions justify-end">
             
-            <div class="badge badge-outline"> {user.employment.title}</div> 
-            <div class="badge badge-outline"> {user.employment.key_skill}</div>
+            <div class="badge badge-outline truncate"> {user.employment.title}</div> 
+            <div class="badge badge-outline truncate"> {user.employment.key_skill}</div>
           </div>
         </div>
       </div>
