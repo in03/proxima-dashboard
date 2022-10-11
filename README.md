@@ -1,18 +1,19 @@
-# create-svelte
+# Proxima Dashboad
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+---
 
-## Creating a project
+#### Monitor Proxima workers and tasks in a shmexy SvelteKit web app :sparkles:
+If you don't know what Proxima is, it's a distributed proxy encoding application for DaVinci Resolve.
+If that sounds good to you, [check it out](https://github.com/in03/proxima)!
 
-If you're seeing this, you've probably already done this step. Congrats!
+> **Note**:
+> 
+> This is currently a (slow) work in progress. It's not highest on the agenda to complete
+> compared to some of the other todos I have for Proxima, let alone my other projects.
+> If there's interest, I'll reevaluate my priorities - especially if others are keen to get involved
+> and contribute!
 
-```bash
-# create a new project in the current directory
-npm init svelte
 
-# create a new project in my-app
-npm init svelte my-app
-```
 
 ## Developing
 
